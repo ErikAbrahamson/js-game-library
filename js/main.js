@@ -1,26 +1,28 @@
 function Game(title, genre, image) {
-  this.title = $('#title').val();
-  this.genre = $('#genre').val();
-  this.image = $('#image').val() || null;
+  this.title = title;
+  this.genre = genre;
+  this.image = image || null;
 }
 function GameLibrary(title) {
   this.title = title;
   this.games = [];
 }
 Game.prototype.render = function() {
-  var game = $('div')
+  var game = $('<div>')
     .append('<strong>' + this.title + '</strong>')
     .append('<p>' + this.genre + '</p>')
     .addClass('game');
   if (this.image !== null) {
     game.append('<img src="' + this.image + '">');
   }
-  this.$element = $('div')
-    .append(game);
+  this.$element = $('#library').append(game);
   return this.$element;
 };
-GameLibrary.prototype.render = function() {
-  var showGames = this.games.map(function(i) {
-    return i.render();
-  });
-};
+
+$('button').on('click', function(event) {
+  console.log('Clicked!');
+  event.preventDefault();
+  var game = new Game($('#title').val(),$('#genre').val(),$('#image').val());
+  game.render();
+
+});
