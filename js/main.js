@@ -1,30 +1,26 @@
-$(document).on('ready', function() {
-  var lib = $('#library'), addBtn = $('#add');
-  var $title = $('#title').val();
-  var $genre = $('#genre').val();
-  var $pic = $('#image').val();
-  function Game(title, genre, imgURL) {
-    this.title = $title || 'no title';
-    this.genre = $genre || 'no genre';
-    this.imgURL = $pic || null;
+function Game(title, genre, image) {
+  this.title = $('#title').val();
+  this.genre = $('#genre').val();
+  this.image = $('#image').val() || null;
+}
+function GameLibrary(title) {
+  this.title = title;
+  this.games = [];
+}
+Game.prototype.render = function() {
+  var game = $('div')
+    .append('<strong>' + this.title + '</strong>')
+    .append('<p>' + this.genre + '</p>')
+    .addClass('game');
+  if (this.image !== null) {
+    game.append('<img src="' + this.image + '">');
   }
-  function GameLibrary(title, games) {
-    this.title = title || 'no title';
-    this.games = [];
-  }
-  Game.prototype.render = function() {
-    addBtn.on('click', function(event) {
-      lib.append('div')
-        .text(this.title + ', ' + this.genre)
-        .addClass('game');
-    });
-  };
-  GameLibrary.prototype.render = function(event) {
-    event.preventDefault();
-    span.append
-      .addClass('library');
-    span.text(this.title + this.genre);
-  };
-
-
-});
+  this.$element = $('div')
+    .append(game);
+  return this.$element;
+};
+GameLibrary.prototype.render = function() {
+  var showGames = this.games.map(function(i) {
+    return i.render();
+  });
+};
