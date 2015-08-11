@@ -35,7 +35,6 @@ $('#select-genre').change(function(event) {
     }
   }
   if ($('.current-genre').text() === 'All Games') {
-    console.log('test');
     $('#library').children().show();
   }
 });
@@ -62,5 +61,19 @@ $('#remove').on('click', function(event) {
   }
 });
 
-
+var killer7 = new Game('Killer7', 'Action', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Killer7boxnew.jpg/250px-Killer7boxnew.jpg');
+var gtav = new Game('GTAV', 'RP', 'http://australianmuslimtimes.com/wp-content/uploads/2014/12/500px-CoverArt-GTAV3.png');
+var sh2 = new Game('Silent Hill 2', 'Horror', 'https://upload.wikimedia.org/wikipedia/en/9/95/Silent_Hill_2.jpg');
+var gt5 = new Game('GT5', 'Racing', 'http://ps3media.ign.com/ps3/image/object/857/857126/gran_turismo_5_ps3_esrb.jpg');
+var hl = new Game('Half-Life', 'FPS', 'https://upload.wikimedia.org/wikipedia/en/f/fa/Half-Life_Cover_Art.jpg');
+library.addGame(killer7);
+library.addGame(gtav);
+library.addGame(sh2);
+library.addGame(hl);
+library.addGame(gt5);
+killer7.render();
+gtav.render();
+hl.render();
+sh2.render();
+gt5.render();
 
