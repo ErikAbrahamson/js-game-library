@@ -4,7 +4,7 @@
   border: 1px solid grey;
   border-radius: 2px;
 }
-img {
-  width: 80px;
-  height: 110px;
+.game {
+  width: 90px;
+  display: inline-block;
 }
