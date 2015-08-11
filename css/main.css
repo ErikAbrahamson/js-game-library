@@ -15,4 +15,11 @@ img {
 button {
   margin: 10px 0;
 }
+#select-genre {
+  width: 200px;
+  display: inline-block;
+  float: right;
+  margin: 10px 0;
+  height: 23px;
+}
 
