@@ -10,6 +10,15 @@ function GameLibrary() {
 GameLibrary.prototype.addGame = function(game) {
   this.games.push(game);
 };
+Game.prototype.addGenre = function() {
+  var genres = [];
+  for (var i = 0; i < $('option').length; i++) {
+    genres.push($('option')[i].value);
+  }
+  if (genres.indexOf(this.genre) === -1) {
+    $('#select-genre').append('<option value="' + this.genre + '">' + this.genre + '</option>');
+  }
+};
 Game.prototype.render = function() {
   var game = $('<div>')
     .append('<strong>' + this.title + '</strong>')
@@ -23,6 +32,7 @@ Game.prototype.render = function() {
 };
 
 var library = new GameLibrary();
+
 
 $('#select-genre').change(function(event) {
   event.preventDefault();
@@ -43,20 +53,17 @@ $('#add').on('click', function(event) {
   event.preventDefault();
   var game = new Game($('#title').val(),$('#genre').val(),$('#image').val());
   library.addGame(game);
+  game.addGenre();
   game.render();
-
-      $('#select-genre').append('<option value="' + game.genre + '">' + game.genre + '</option>');
-
   $('input').val(null);
 });
 
 $('#remove').on('click', function(event) {
   event.preventDefault();
   var selected = prompt('Which game do you want to remove?');
-  console.log(selected);
   for (var i = 0; i < $('strong').length; i++) {
-    if (selected == $('strong').eq(i).text()) {
-      $('strong').closest('.game').remove();
+    if (selected === $('strong').eq(i).text()) {
+      $('strong').eq(i).closest('.game').remove();
     }
   }
 });
@@ -76,4 +83,9 @@ gtav.render();
 hl.render();
 sh2.render();
 gt5.render();
+killer7.addGenre();
+gtav.addGenre();
+sh2.addGenre();
+gt5.addGenre();
+hl.addGenre();
 
