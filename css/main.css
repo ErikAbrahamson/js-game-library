@@ -5,6 +5,11 @@
   border-radius: 2px;
 }
 .game {
-  width: 90px;
+  width: 100px;
   display: inline-block;
 }
+img {
+  width: 90px;
+  height: 120px;
+}
+

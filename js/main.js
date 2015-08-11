@@ -24,5 +24,5 @@ $('button').on('click', function(event) {
   event.preventDefault();
   var game = new Game($('#title').val(),$('#genre').val(),$('#image').val());
   game.render();
-
+  $('input').val(null);
 });
