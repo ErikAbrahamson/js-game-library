@@ -19,10 +19,21 @@ Game.prototype.render = function() {
   return this.$element;
 };
 
-$('button').on('click', function(event) {
+$('#add').on('click', function(event) {
   console.log('Clicked!');
   event.preventDefault();
   var game = new Game($('#title').val(),$('#genre').val(),$('#image').val());
   game.render();
   $('input').val(null);
+});
+
+$('#remove').on('click', function(event) {
+  event.preventDefault();
+  var selected = prompt('Which game do you want to remove?');
+  console.log(selected);
+  for (var i = 0; i < $('strong').length; i++) {
+    if (selected == $('strong').eq(i).text()) {
+      $('strong').closest('.game').remove();
+    }
+  }
 });
