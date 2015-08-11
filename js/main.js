@@ -3,10 +3,12 @@ function Game(title, genre, image) {
   this.genre = genre;
   this.image = image || null;
 }
+
 function GameLibrary(title) {
   this.title = title;
   this.games = [];
 }
+
 Game.prototype.render = function() {
   var game = $('<div>')
     .append('<strong>' + this.title + '</strong>')
