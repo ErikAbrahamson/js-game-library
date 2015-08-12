@@ -25,7 +25,8 @@ $(document).ready(function() {
     var game = $('<div>')
       .append('<strong>' + this.title + '</strong>')
       .append('<p>' + this.genre + '</p>')
-      .addClass('game');
+      .addClass('game')
+      .hide().delay(600).fadeIn(400);
     if (this.image !== this.defaultCover) {
       game.append('<img src="' + this.image + '">');
     }
@@ -67,18 +68,12 @@ $(document).ready(function() {
     }
   });
 
-  // $('#library').hover(function() {
-  //   $(this).find('img').addClass('transition');
-  //   }, function() {
-  //    $(this).find('img').removeClass('transition');
-  //   });
-
-  // // $('#library').on('hover', 'div', function() {
-  // //   console.log('Working');
-  // //     $(this).addClass('transition');
-  // //   }, function() {
-  // //     $(this).removeClass('transition');
-  // //   });
+  $('#library').on('mouseenter', 'div.game img', function() {
+    $(this).addClass('transition');
+  });
+    $('#library').on('mouseleave', 'div.game img', function() {
+    $(this).removeClass('transition');
+  });
 
   var killer7 = new Game('Killer7', 'Action', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Killer7boxnew.jpg/250px-Killer7boxnew.jpg');
   var gtav = new Game('GTAV', 'RP', 'http://australianmuslimtimes.com/wp-content/uploads/2014/12/500px-CoverArt-GTAV3.png');
