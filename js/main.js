@@ -87,13 +87,13 @@ $(document).ready(function() {
   library.addGame(gt5);
   killer7.render();
   gtav.render();
-  hl.render();
   sh2.render();
+  hl.render();
   gt5.render();
   killer7.addGenre();
   gtav.addGenre();
   sh2.addGenre();
-  gt5.addGenre();
   hl.addGenre();
+  gt5.addGenre();
 });
 
