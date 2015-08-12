@@ -11,6 +11,9 @@
 img {
   width: 90px;
   height: 120px;
+  -webkit-transition: all .2s ease-in-out;
+     -moz-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
 }
 button {
   margin: 10px 0;
@@ -21,5 +24,10 @@ button {
   float: right;
   margin: 10px 0;
   height: 23px;
+}
+.transition {
+  -webkit-transform: scale(1.5);
+     -moz-transform: scale(1.5);
+       -o-transform: scale(1.5);
 }
 
