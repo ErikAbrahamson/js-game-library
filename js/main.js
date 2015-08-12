@@ -42,7 +42,7 @@ $(document).ready(function() {
       if (library.games[i].genre !== $('.current-genre').text()) {
         $('.game').eq(i).hide();
       } else {
-        $('.game').eq(i).show().hide().delay(100).fadeIn(400);
+        $('.game').eq(i).show().hide().delay(0).fadeIn(400);
       }
     }
     if ($('.current-genre').text() === 'All Games') {
